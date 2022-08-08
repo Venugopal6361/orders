@@ -69,6 +69,7 @@ jobs:
         env:
           DOCKER_BUILDKIT: 1
         run: ./test/test.sh container.py --tag ${GITHUB_SHA}
+        
 
       # Upload coverage results to coveralls
       - name: Submit Coveralls
