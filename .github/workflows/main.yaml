@@ -75,5 +75,5 @@ jobs:
          dockerfile: docker/orders/Dockerfile.github
        # path: target/
          registry: docker.io
-         image: venupj/sockshop  
+         image: venupj/order  
      
