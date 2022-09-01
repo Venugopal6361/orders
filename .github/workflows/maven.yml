@@ -51,9 +51,11 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file Dockerfile -t orders
 
-       
-    - name: Push to JFrog
-      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
+    - name: Run the Command
+      run: docker tag latest https://registry-1.docker.io/docker/order:v1
+      
+#    - name: Push to JFrog
+#      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
       
       
        
