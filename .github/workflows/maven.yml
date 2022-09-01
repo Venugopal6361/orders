@@ -50,7 +50,7 @@ jobs:
       with:
           dockerfile: docker/orders/Dockerfile.github
           push: true
-          tags: http://registry-1.docker.io/order:latest
+          #tags: http://172.16.238.245:8082/registry-1.docker.io/order:latest
 
 #    - name: Run command   
 #      run: |
