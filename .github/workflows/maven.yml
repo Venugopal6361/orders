@@ -46,5 +46,6 @@ jobs:
 
     - name: Run command   
       run: |
-          docker build docker/orders
+          curl -I -k -v http://172.16.238.184:8082/api/system/ping
+          #docker build docker/orders
 #         docker tag venupj/order:master-a781562 jfrog.cyder.com.sg/docker/order:1.0
