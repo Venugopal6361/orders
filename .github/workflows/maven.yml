@@ -49,7 +49,9 @@ jobs:
        JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
        
     - name: Build the Docker image
-      run: docker build docker/orders/Dockerfile.github --tag "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
+      run: |
+         cd docker/orders/
+         docker build .
        
     - name: Push to JFrog
       run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
