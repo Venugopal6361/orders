@@ -56,8 +56,8 @@ jobs:
  #   - name: Run the Command
  #     run: docker tag master-c6f447a https://registry-1.docker.io/docker/order:v1
       
-#    - name: Push to JFrog
-#      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
+    - name: Push to JFrog
+      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
       
       
        
