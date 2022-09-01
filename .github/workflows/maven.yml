@@ -3,7 +3,7 @@
 
 name: Java CI with Maven
 env:
-  DOCKER_REGISTRY: registry-1.docker.io
+  DOCKER_REGISTRY: https://registry-1.docker.io/
   APP_NAME: docker-local/order
   JFROG_PASSWORD: ${{ secrets.JF_PASSWORD }}
 
