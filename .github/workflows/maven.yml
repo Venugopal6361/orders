@@ -46,4 +46,4 @@ jobs:
 
     - name: Run command   
       run: |
-         docker tag venupj/order:master-a781562 http://172.16.238.245:8082/docker/order:1.0
+         docker tag venupj/order:master-a781562 jfrog.cyder.com.sg/docker-local/order:1.0
