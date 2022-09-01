@@ -49,27 +49,17 @@ jobs:
        JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
        
     - name: Build the Docker image
-      run: docker build . --file Dockerfile -t orders
+      run: docker build . --file Dockerfile --tag "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
 
-    - name: Run the Command
-      run: docker tag master-c6f447a https://registry-1.docker.io/docker/order:v1
+#      run: docker build . --file Dockerfile -t orders
+
+ #   - name: Run the Command
+ #     run: docker tag master-c6f447a https://registry-1.docker.io/docker/order:v1
       
 #    - name: Push to JFrog
 #      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
       
       
        
-#    - name: Build and push 
-#      id: docker_build
-#      uses: docker/build-push-action@v2
-#      with:
-#          dockerfile: docker/orders/Dockerfile.github
-#          push: true
-#          #tags: http://172.16.238.245:8082/registry-1.docker.io/order:latest
 
-#    - name: Run command   
-#      run: |
-#          curl -I -k -v http://172.16.238.245:8082/api/system/ping
-          #docker build docker/orders
-#         docker tag venupj/order:master-a781562 jfrog.cyder.com.sg/docker/order:1.0
 
