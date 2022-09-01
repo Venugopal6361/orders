@@ -37,4 +37,13 @@ jobs:
          dockerfile: docker/orders/Dockerfile.github
          registry: docker.io
          image: venupj/order 
+         
+    - name: jforg login
+      uses: jfrog/setup-jfrog-cli@v2
+      env:   
+       JF_USER: ${{ secrets.JF_USER }}
+       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
 
+    - name: Run command   
+      run: |
+         docker tag venupj/order:master-a781562 http://172.16.238.245:8082/docker/order:1.0
