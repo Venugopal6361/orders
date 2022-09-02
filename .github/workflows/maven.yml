@@ -5,8 +5,8 @@ name: Java CI with Maven
 env:
   DOCKER_REGISTRY: 172.16.238.245
   APP_NAME: order
-  JFROG_USER: ${{ secrets.JF_USER }}
-  JFROG_PASSWORD: ${{ secrets.JF_PASSWORD }}
+  JFROG_USER: ${{ secrets.JFROG_USER }}
+  JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
 
 on:
   push:
@@ -42,9 +42,9 @@ jobs:
 #         dockerfile: docker/orders/Dockerfile.github
 #         registry: docker.io
 #         image: venupj/order 
-    - uses: actions/checkout@v3     
+    - uses: actions/checkout@v2    
     - name: jforg login
-      run: docker login -u "JFROG_USER" -p "$JFROG_PASSWORD" $DOCKER_REGISTRY
+      run: docker login -u "$JFROG_USER" -p "$JFROG_PASSWORD" $DOCKER_REGISTRY
 
 #      uses: jfrog/setup-jfrog-cli@v2
 #      env:   
@@ -53,14 +53,14 @@ jobs:
        
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
+    - name: Push to JFrog
+      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
 
-#      run: docker build . --file Dockerfile -t orders
 
  #   - name: Run the Command
  #     run: docker tag master-c6f447a https://registry-1.docker.io/docker/order:v1
       
-    - name: Push to JFrog
-      run: docker push "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
+   
       
       
        
