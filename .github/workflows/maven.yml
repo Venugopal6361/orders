@@ -45,13 +45,13 @@ jobs:
     - uses: actions/checkout@v2    
     - name: jforg login
 #      run: docker login -u "$JFROG_USER" -p "$JFROG_PASSWORD" $DOCKER_REGISTRY
-      run: |
-        echo "${{ secrets.JFROG_PASSWORD }}" | docker login -u "venupj" --password-stdin 
+ #     run: |
+#        echo "${{ secrets.JFROG_PASSWORD }}" | docker login -u "venupj" --password-stdin 
 
-#      uses: jfrog/setup-jfrog-cli@v2
-#      env:   
-#       JF_USER: ${{ secrets.JF_USER }}
-#       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
+      uses: jfrog/setup-jfrog-cli@v2
+      env:   
+       JF_USER: ${{ secrets.JF_USER }}
+       JF_PASSWORD: ${{ secrets.JF_PASSWORD }}
        
     - name: Build the Docker image
       run: docker build . --tag "$DOCKER_REGISTRY/$APP_NAME:1.0.${{ github.run_id }}"
