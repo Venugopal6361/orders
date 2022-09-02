@@ -46,7 +46,7 @@ jobs:
     - name: jforg login
 #      run: docker login -u "$JFROG_USER" -p "$JFROG_PASSWORD" $DOCKER_REGISTRY
       run: |
-        echo "${{ secrets.JFROG_PASSWORD }}" | docker login -u "admin" --password-stdin 
+        echo "${{ secrets.JFROG_PASSWORD }}" | docker login -u "venupj" --password-stdin 
 
 #      uses: jfrog/setup-jfrog-cli@v2
 #      env:   
